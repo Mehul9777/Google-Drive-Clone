@@ -13,6 +13,8 @@ services:
       - ./metadata:/app/metadata
     environment:
       - PYTHONUNBUFFERED=1
+    env_file:
+      - ./backend/.env   # <--- Add this line
 
   frontend:
     build:
@@ -25,3 +27,4 @@ services:
       - backend
     environment:
       - BACKEND_URL=http://backend:8000
+
